@@ -1,3 +1,1 @@
-# ikeasamoahansah.github.io
-
-Hello
+Coming soon! 🗿
