@@ -14,3 +14,19 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
+theme = "zola-pickles"
+
+# A line to display underneath the main title
+subtitle = "Example subtitle"
+
+# Text to display in the footer of the page
+copyright = "Copyright authors year"
+
+# Your Google Analytics ID
+analytics = ""
+
+# See below
+katex_enable = false
+
+# See below
+instantpage_enable = false
