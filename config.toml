@@ -14,7 +14,6 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
-theme = "zola-pickles"
 
 # A line to display underneath the main title
 subtitle = "Example subtitle"
