@@ -4,13 +4,14 @@
 <head>
   <meta charset="utf-8">
   <title>Ike</title>
+  <link rel="stylesheet" href="{{ get_url(path='public/style.css', cachebust=true) | safe }}">
 </head>
 
 <body>
   <nav class="navbar">
     <div class="container"> 
         <ul class="nav-links">
-          <li><a href="#">Home</a></li>
+          <li><a href="{{ get_url(path='@/_index.md') }}">Home</a></li>
           <li><a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a></li>
           <li><a href="{{ get_url(path='@/project/_index.md') }}">Projects</a></li>
           <li><a href="#">Research</a></li>
