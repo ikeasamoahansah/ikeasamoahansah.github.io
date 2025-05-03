@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Ike</title>
-  <link rel="stylesheet" href="{{ get_url(path='public/style.css', cachebust=true) | safe }}">
+  <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
 </head>
 
 <body>
@@ -14,8 +14,7 @@
           <li><a href="{{ get_url(path='@/_index.md') }}">Home</a></li>
           <li><a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a></li>
           <li><a href="{{ get_url(path='@/project/_index.md') }}">Projects</a></li>
-          <li><a href="#">Research</a></li>
-          <!-- <li><a href="#">Contact</a></li> -->
+          <li><a href="{{ get_url(path='@/research/_index.md') }}">Research</a></li>
         </ul>
     </div>
   </nav>
