@@ -1,17 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="index-content">
-
+<div class="project-content">
   <h1 class="title">
     {{ section.title }}
   </h1>
-  <ul>
+  <span></span>
+</div>
+<div class="posts">
+  <div>
     <!-- If you are using pagination, section.pages will be empty.
-         You need to use the paginator object -->  
+          You need to use the paginator object -->  
     {% for page in section.pages %}
-    <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+    <div class="card">
+      <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+    </div>
     {% endfor %}
-  </ul>
+  </div>
 </div>
 {% endblock content %}

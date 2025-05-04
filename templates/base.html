@@ -9,22 +9,18 @@
 
 <body>
   <nav class="navbar">
-    <div class="container"> 
-        <div class="signature">
-          <a href="{{ get_url(path='@/_index.md') }}">pacman</a>
-        </div>
-        <ul class="nav-links">
-          <li><a href="{{ get_url(path='@/blog/_index.md') }}" class="text-dec-line">Blog</a></li>
-          <li><a href="{{ get_url(path='@/project/_index.md') }}" class="text-dec-line">Projects</a></li>
-          <li><a href="{{ get_url(path='@/research/_index.md') }}" class="text-dec-line">Research</a></li>
-          <li><a href="https://read.cv/ikeasamoahansah" class="text-dec-line">Resume</a></li>
-        </ul>
-    </div>
+    <a class="signature" href="{{ get_url(path='@/_index.md') }}">pacman</a>
+    <div class="nav-links">
+      <li><a href="{{ get_url(path='@/blog/_index.md') }}" class="text-dec-line">Blog</a></li>
+      <li><a href="{{ get_url(path='@/project/_index.md') }}" class="text-dec-line">Projects</a></li>
+      <li><a href="{{ get_url(path='@/research/_index.md') }}" class="text-dec-line">Research</a></li>
+      <li><a href="https://read.cv/ikeasamoahansah" class="text-dec-line">Resume</a></li>
+    </ul>
   </nav>
 
-  <div class="page-wrapper">
+  <main>
     {% block content %} {% endblock %}
-  </div>
+  </main>
 </body>
 
 </html>

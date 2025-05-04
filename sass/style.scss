@@ -8,11 +8,13 @@ $border: #e5e7eb;
 * {
     margin: 0 auto;
     padding: 0;
+    max-width: 1200px;
     box-sizing: border-box;
 }
 
 a {
     text-decoration: none;
+    color: $secondary-color;
 }
 
 body {
@@ -23,25 +25,13 @@ body {
 }
 
 .navbar {
-    top: 0;
-    background-color: $tertiary-color;
-    color: $primary-color;
-    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    transition: all 0.3s ease;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 10px auto 0 auto;
     display: flex;
     justify-content: space-between;
+    padding: 20px;
     align-items: center;
-    padding: 1rem 0;
 }
 
-.signature a {
+.signature {
     color: $primary-color;
 }
 
@@ -64,11 +54,11 @@ body {
     color: $secondary-color;
 }
 
-.page-wrapper {
-    width: 100%;
-    margin: 0 auto;
-    max-width: 1200px;
-}
+// .page-wrapper {
+//     // width: 100%;
+//     // margin: 0 auto;
+//     // max-width: 1200px;
+// }
 
 // index.html
 
@@ -169,4 +159,64 @@ body {
 
 .mt-5 {
     margin-top: 5px;
+}
+
+// project.html
+
+.project-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 2rem;
+}
+
+.section-title {
+    margin-bottom: 2rem;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    color: $muted;
+}
+
+// blog.html
+
+.posts {
+    display: flex;
+    flex-direction: column;
+}
+
+.publication-card {
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    background-color: #fff;
+}
+
+.publication-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.publication-authors {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.publication-link {
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.publication-link svg {
+    margin-left: 0.5rem;
+    width: 16px;
+    height: 16px;
 }

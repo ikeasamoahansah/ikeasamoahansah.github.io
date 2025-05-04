@@ -1,17 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="index-content">
+<div class="project-content">
 
   <h1 class="title">
     {{ section.title }}
   </h1>
-  <ul>
-    <!-- If you are using pagination, section.pages will be empty.
-         You need to use the paginator object -->  
-    {% for page in section.pages %}
-    <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+  {% for page in section.pages %}
+    <div class="publication-card">
+      <h2 class="publication-title">{{ page.title }}</h2>
+      <p class="publication-authors">Ike</p>
+      <a href="{{ page.permalink | safe }}" class="publication-link">
+          Read
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5v14M5 12h14"></path>
+          </svg>
+      </a>
+    </div>
     {% endfor %}
-  </ul>
 </div>
 {% endblock content %}
