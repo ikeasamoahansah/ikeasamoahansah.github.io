@@ -1,5 +1,8 @@
 $font-stack: Helvetica, sans-serif;
-// $primary-color: #000;
+$primary-color: #000;
+$secondary-color: #00bcd4;
+$tertiary-color: #fff;
+$muted: #808080;
 
 * {
     margin: 0 auto;
@@ -20,8 +23,8 @@ body {
 
 .navbar {
     top: 0;
-    background-color: #fff;
-    color: #333;
+    background-color: $tertiary-color;
+    color: $primary-color;
     // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     transition: all 0.3s ease;
@@ -38,7 +41,7 @@ body {
 }
 
 .signature a {
-    color: #333;
+    color: $primary-color;
 }
 
 .nav-links {
@@ -51,13 +54,13 @@ body {
 }
 
 .nav-links a {
-    color: #333;
+    color: $primary-color;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #00bcd4;
+    color: $secondary-color;
 }
 
 .page-wrapper {
@@ -72,3 +75,22 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+.user-name {
+    margin: 5rem auto;
+}
+
+.user-name h1 {
+    font-size: 3.75rem;
+    margin-bottom: 10px;
+}
+
+.job {
+    display: flex;
+    justify-content: center;
+}
+
+.job p {
+    color: $muted;
+}
+
