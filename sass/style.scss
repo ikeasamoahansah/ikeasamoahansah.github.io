@@ -78,7 +78,7 @@ body {
 }
 
 .user-name {
-    margin: 5rem auto;
+    margin: 5rem auto 2rem auto;
 }
 
 .user-name h1 {
@@ -137,4 +137,36 @@ body {
     border: 0 solid $muted;
     border-width: 1px;
     border-color: $border;
+}
+
+.proud {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.svg-flag {
+    position: relative;
+}
+
+.animate-\[rotate_3s\] {
+    animation: rotate 3s;
+}
+
+.flag {
+    top: 1.75rem;
+    left: 2rem;
+    position: absolute;
+}
+
+.about {
+    max-width: none;
+}
+
+.about p{
+    line-height: 1.75rem;
+}
+
+.mt-5 {
+    margin-top: 5px;
 }
