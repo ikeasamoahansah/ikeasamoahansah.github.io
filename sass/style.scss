@@ -1,4 +1,4 @@
-// $font-stack: Helvetica, sans-serif;
+$font-stack: Helvetica, sans-serif;
 // $primary-color: #000;
 
 * {
@@ -11,8 +11,14 @@ a {
     text-decoration: none;
 }
 
+body {
+    font-family: $font-stack;
+    width: 100%;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
 .navbar {
-    position: sticky;
     top: 0;
     background-color: #fff;
     color: #333;
@@ -24,12 +30,16 @@ a {
 .container {
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 10px auto 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 0;
-  }
+}
+
+.signature a {
+    color: #333;
+}
 
 .nav-links {
     display: flex;
@@ -48,4 +58,17 @@ a {
 
 .nav-links a:hover {
     color: #00bcd4;
+}
+
+.page-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+// index.html
+
+.index-content {
+    display: flex;
+    flex-direction: column;
 }

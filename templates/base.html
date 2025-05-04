@@ -14,19 +14,17 @@
           <a href="">pacman</a>
         </div>
         <ul class="nav-links">
-          <li><a href="{{ get_url(path='@/_index.md') }}">Home</a></li>
-          <li><a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a></li>
-          <li><a href="{{ get_url(path='@/project/_index.md') }}">Projects</a></li>
-          <li><a href="{{ get_url(path='@/research/_index.md') }}">Research</a></li>
+          <li><a href="{{ get_url(path='@/_index.md') }}" class="text-dec-line">Home</a></li>
+          <li><a href="{{ get_url(path='@/blog/_index.md') }}" class="text-dec-line">Blog</a></li>
+          <li><a href="{{ get_url(path='@/project/_index.md') }}" class="text-dec-line">Projects</a></li>
+          <li><a href="{{ get_url(path='@/research/_index.md') }}" class="text-dec-line">Research</a></li>
         </ul>
     </div>
   </nav>
 
-  <section class="section">
-    <div class="container2">
-      {% block content %} {% endblock %}
-    </div>
-  </section>
+  <div class="page-wrapper">
+    {% block content %} {% endblock %}
+  </div>
 </body>
 
 </html>
