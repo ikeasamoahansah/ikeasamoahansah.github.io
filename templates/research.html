@@ -3,9 +3,9 @@
 {% block content %}
 <div class="project-content">
 
-  <h1 class="title">
-    {{ section.title }}
-  </h1>
+  <div class="">
+    <h3 class="section-title">{{ section.title }}</h1>  
+  </div>
   {% for page in section.pages %}
     <div class="publication-card">
       <h2 class="publication-title">{{ page.title }}</h2>
