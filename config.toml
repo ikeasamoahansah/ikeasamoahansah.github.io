@@ -14,7 +14,7 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
-
+url = "https://github.com"
 # A line to display underneath the main title
 subtitle = "Example subtitle"
 
