@@ -67,9 +67,15 @@ body {
 
 // index.html
 
+main {
+    max-width: 900px;
+}
+
 .index-content {
     display: flex;
     flex-direction: column;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .user-name {
@@ -79,6 +85,7 @@ body {
 .user-name h1 {
     font-size: 3.75rem;
     margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .job {
@@ -160,6 +167,18 @@ body {
 
 .about p{
     line-height: 1.75rem;
+}
+
+@media (min-width:640px) {
+
+    .index-content {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .about p {
+        font-size: 1.125rem;
+    }
 }
 
 .mt-5 {
