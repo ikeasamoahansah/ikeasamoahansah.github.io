@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+:root {
+    --font-stack: Helvetica, sans-serif;
+    --primary-color: #000;
+    --secondary-color: #00bcd4;
+    --tertiary-color: #fff;
+    --muted: #808080;
+    --border: #e5e7eb;
+}
+
+.a-hover:hover {
+    color: var(--secondary-color);
+}

@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.12",
+    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/vite": "^4.1.12"
+  },
+  "name": "ikeasamoahansah.github.io",
+  "version": "1.0.0",
+  "description": "Personal website",
+  "main": "index.js",
+  "scripts": {
+    "build": "NODE_ENV=production npx @tailwindcss/cli -i ./styles/styles.css -o ./static/styles/styles.css",
+    "watch": "npx @tailwindcss/cli -i ./styles/styles.css -o ./static/styles/styles.css; zola serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikeasamoahansah/ikeasamoahansah.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ikeasamoahansah/ikeasamoahansah.github.io/issues"
+  },
+  "homepage": "https://github.com/ikeasamoahansah/ikeasamoahansah.github.io#readme",
+  "devDependencies": {
+    "tailwindcss": "^4.1.12"
+  }
+}

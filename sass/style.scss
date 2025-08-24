@@ -202,6 +202,20 @@ main {
 
 // blog.html
 
+.blog-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: none;
+}
+
 .posts {
     display: flex;
     flex-direction: column;
