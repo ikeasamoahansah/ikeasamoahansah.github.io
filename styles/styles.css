@@ -5,10 +5,14 @@
     --primary-color: #000;
     --secondary-color: #00bcd4;
     --tertiary-color: #fff;
-    --muted: #808080;
+    --text-muted: #808080;
     --border: #e5e7eb;
 }
 
 .a-hover:hover {
     color: var(--secondary-color);
+}
+
+.text-sec {
+    color: var(--secondary-color)
 }
