@@ -2,18 +2,19 @@
 
 {% block content %}
 <div class="flex flex-col items-center justify-center px-8 mt-16">
-
-  <h1 class="text-4xl md:text-5xl font-light text-black mb-4 font-medium">
-    ~pacman
-  </h1>
-  <div class="text-lg text-gray-600 mb-8">
-    <p>Machine Learning Engineer | Researcher</p>
-  </div>
-  <div class="flex flex-col sm:flex-row gap-4 mb-8">
-    <a href="{{ get_url(path='@/blog/_index.md')}}" class="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm hover:shadow-md h-12 rounded-md px-8 text-base group">Read Blog 
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-    </a>
-    <a href="{{get_url(path='@/project/_index.md')}}" class="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground shadow-sm hover:shadow-md h-12 rounded-md px-8 text-base">View projects</a>
+  <div class="mt-10 ml-auto mr-auto mb-5">
+    <h1 class="text-6xl font-semibold text-gray-900 mb-10">
+      ~pacman
+    </h1>
+    <div class="flex justify-center">
+      <p class="text-sm text-(--text-muted)">Machine Learning Engineer | Researcher</p>
+    </div>
+    <div class="flex justify-center gap-8 mt-5 mb-10 mr-auto ml-auto">
+      <a href="{{ get_url(path='@/blog/_index.md')}}" class="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all duration-200 bg-(--primary-color) text-(--tertiary-color) hover:bg-primary/90 h-10 rounded-md p-2 text-sm group">Read Blog 
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" style="width: 1rem; height: 1rem; margin-left: 0.5rem;"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+      </a>
+      <a href="{{get_url(path='@/project/_index.md')}}" class="inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 border border-input border-(--border) bg-background hover:bg-accent hover:text-accent-foreground h-10 rounded-md p-2 text-sm">View projects</a>
+    </div>
   </div>
 
   <div class="proud mb-8">
@@ -23,7 +24,7 @@
     </div>
   </div>
 
-  <div class="about">
+  <div class="about" style="font-size: 1.125rem;">
     <p>I am currently an undergraduate at the <a href="https://knust.edu.gh" class="text-sec">Kwame Nkrumah University of Science and Technology</a></p>
     <p class="mt-5">I have experience in building and deploying machine learning models. With a particular interest in classical ML</p>
   </div>
