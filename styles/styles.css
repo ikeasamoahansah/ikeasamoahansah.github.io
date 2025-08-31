@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@layer base {
+    *, ::after, ::before, ::backdrop, ::file-selector-button {
+      box-sizing: border-box;
+      margin: 0 auto;
+      padding: 0;
+      border: 0 solid;
+    }
+}
 :root {
     --font-stack: Helvetica, sans-serif;
     --primary-color: #000;

@@ -14,7 +14,7 @@
       <div class="container max-w-7xl mx-auto px-6">
         <nav class="flex h-16 items-center justify-between">
           <a class="flex items-center space-x-2" href="{{ get_url(path='@/_index.md') }}">pacman</a>
-          <div class="hidden md:flex items-center space-x-8">
+          <div class="flex items-center space-x-8">
             <a href="{{ get_url(path='@/blog/_index.md') }}" class="relative text-md font-medium text-muted-foreground transition-colors a-hover group">Blog</a>
             <a href="{{ get_url(path='@/project/_index.md') }}" class="relative text-md font-medium text-muted-foreground transition-colors a-hover group">Projects</a>
             <a href="{{ get_url(path='@/research/_index.md') }}" class="relative text-md font-medium text-muted-foreground transition-colors a-hover group">Research</a>
@@ -24,7 +24,7 @@
       </div>
     </header>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl">
       {% block content %} {% endblock %}
     </div>
   </div>
