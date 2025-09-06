@@ -25,3 +25,7 @@
 .text-sec {
     color: var(--secondary-color)
 }
+
+.border-b {
+    border-bottom-width: 1px;
+}

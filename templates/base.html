@@ -10,15 +10,15 @@
 <body class="min-h-screen bg-background text-foreground" style="font-family: Helvetica, sans-serif;">
   <div class="Root">
 
-    <header class="sticky top-0 z-50 w-full">
-      <div class="container max-w-7xl mx-auto px-6">
+    <header class="sticky top-0 z-50 w-full border-b border-(--tertiary-color) backdrop-blur-sm">
+      <div class="container max-w-7xl mx-auto">
         <nav class="flex h-16 items-center justify-between">
-          <a class="flex items-center space-x-2" href="{{ get_url(path='@/_index.md') }}">pacman</a>
+          <a class="flex items-center space-x-2 text-xl" href="{{ get_url(path='@/_index.md') }}">pacman</a>
           <div class="flex items-center space-x-8">
-            <a href="{{ get_url(path='@/blog/_index.md') }}" class="relative text-md font-medium text-muted-foreground transition-colors a-hover group">Blog</a>
-            <a href="{{ get_url(path='@/project/_index.md') }}" class="relative text-md font-medium text-muted-foreground transition-colors a-hover group">Projects</a>
-            <a href="{{ get_url(path='@/research/_index.md') }}" class="relative text-md font-medium text-muted-foreground transition-colors a-hover group">Research</a>
-            <a href="#" class="relative text-md font-medium text-muted-foreground transition-colors a-hover group">Resume</a>
+            <a href="{{ get_url(path='@/blog/_index.md') }}" class="relative text-md font-medium text-(--text-muted) transition-colors a-hover group">Blog</a>
+            <a href="{{ get_url(path='@/project/_index.md') }}" class="relative text-md font-medium text-(--text-muted) transition-colors a-hover group">Projects</a>
+            <a href="{{ get_url(path='@/research/_index.md') }}" class="relative text-md font-medium text-(--text-muted) transition-colors a-hover group">Research</a>
+            <a href="#" class="relative text-md font-medium text-(--text-muted) transition-colors a-hover group">Resume</a>
           </div>
         </nav>
       </div>
