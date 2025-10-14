@@ -29,3 +29,5 @@ katex_enable = false
 
 # See below
 instantpage_enable = false
+
+toc = true

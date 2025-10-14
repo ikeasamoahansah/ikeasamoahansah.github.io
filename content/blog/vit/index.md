@@ -86,7 +86,6 @@ image_out_of_conv_flattened_reshaped = image_out_of_conv_flattened.permute(0, 2,
 
 ```
 
-> [!NOTE]
 > The original Transformer architecture was designed to work with text. 
 > The Vision Transformer architecture (ViT) had the goal of using the original Transformer for images. 
 > This is why the input to the ViT architecture is processed in the way it is. 
