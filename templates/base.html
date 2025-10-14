@@ -15,17 +15,20 @@
       <div class="container max-w-7xl mx-auto">
         <nav class="flex h-16 items-center justify-between">
           <a class="flex items-center space-x-2 text-xl" href="{{ get_url(path='@/_index.md') }}">pacman</a>
-          <div class="flex items-center space-x-8">
+          <div class="hidden md:flex items-center space-x-8">
             <a href="{{ get_url(path='@/blog/_index.md') }}" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Blog</a>
             <a href="{{ get_url(path='@/project/_index.md') }}" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Projects</a>
             <a href="{{ get_url(path='@/research/_index.md') }}" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Research</a>
+            <a href="#" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Resume</a>
+          </div>
+          <div class="flex items-center space-x-8 md:hidden">
             <a href="#" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Resume</a>
           </div>
         </nav>
       </div>
     </header>
 
-    <div class="max-w-5xl">
+    <div class="max-w-5xl w-2/3 md:w-full">
       {% block content %} {% endblock %}
     </div>
   </div>
