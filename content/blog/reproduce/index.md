@@ -5,8 +5,6 @@ date = 2025-10-15
 
 <h2 align="center"> Reproducibility: In Machine Learning Applications </h1>
 
-toc()
-
 ### Background
 I recently participated in the NASA space apps challenge, an annual global hackathon which brings together developers, designers and storytellers for a 2-day event. Every year, NASA has a list of challenges that participants may chose from. This year, my team decided to tackle challenge #2 (A World Away: Hunting for Exoplanets with AI).
 
@@ -24,7 +22,11 @@ We were quick to develop and deploy a machine learning prediction pipeline using
 
 First run            |  Second run
 :-------------------------:|:-------------------------:
-![](screenshot-1.png)  |  ![](screenshot-2.png)
+{{ resize_image(path='/content/blog/reproduce/screenshot-1.png', width=800, height=800, op="fit") }} | {{ resize_image(path='/content/blog/reproduce/screenshot-2.png', width=800, height=800, op="fit") }}
+<!-- <img src="screenshot-1.png"/>  <img src="screenshot-2.png"/> -->
+
+
+<!-- ![image](screenshot-1.png)  |  ![image](screenshot-2.png) -->
 <!-- ![screenshot-1.png](screenshot-1.png) ![screenshot-2.png](screenshot-2.png) -->
 
 
@@ -97,7 +99,8 @@ y_pred_rf = rf.predict(X_test)
 
 First run            |  Second run
 :-------------------------:|:-------------------------:
-![](screenshot-3.png)  |  ![](screenshot-3.png)
+{{ resize_image(path='/content/blog/reproduce/screenshot-3.png', width=800, height=800, op="fit") }} | {{ resize_image(path='/content/blog/reproduce/screenshot-3.png', width=800, height=800, op="fit") }}
+
 
 
 > As you can see, results were now consistent
