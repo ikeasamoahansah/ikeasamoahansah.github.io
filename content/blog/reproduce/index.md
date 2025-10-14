@@ -16,7 +16,7 @@ Project Description:
 
 <strong>tldr;</strong> We were to build a machine learning model that can accurately identify exoplanets, classifying them as "Confirmed Exoplanet", "Exoplanet Candidate" or "False Positive"
 
-We were quick to develop and deploy a machine learning prediction pipeline using XGBoost and a Random Forest model on [huggingface](https://huggingface.co/spaces/pacman2223/exo-standalone) with a FastAPI backend which was linked to a html frontend. However, we noticed some issues with the prediction.
+We were quick to develop and deploy a machine learning prediction pipeline using XGBoost and a Random Forest model on [huggingface](https://huggingface.co) with a FastAPI backend which was linked to a html frontend. However, we noticed some issues with the prediction.
 
 ### Output:
 

@@ -4,6 +4,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
   <title>pacman | Generalist</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ config.extra.favicon | safe }}">
   <link rel="stylesheet" href="{{ get_url(path="styles/styles.css") | safe }}" />
 </head>
 
@@ -15,10 +16,10 @@
         <nav class="flex h-16 items-center justify-between">
           <a class="flex items-center space-x-2 text-xl" href="{{ get_url(path='@/_index.md') }}">pacman</a>
           <div class="flex items-center space-x-8">
-            <a href="{{ get_url(path='@/blog/_index.md') }}" class="relative text-md font-medium text-(--text-muted) transition-colors a-hover group">Blog</a>
-            <a href="{{ get_url(path='@/project/_index.md') }}" class="relative text-md font-medium text-(--text-muted) transition-colors a-hover group">Projects</a>
-            <a href="{{ get_url(path='@/research/_index.md') }}" class="relative text-md font-medium text-(--text-muted) transition-colors a-hover group">Research</a>
-            <a href="#" class="relative text-md font-medium text-(--text-muted) transition-colors a-hover group">Resume</a>
+            <a href="{{ get_url(path='@/blog/_index.md') }}" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Blog</a>
+            <a href="{{ get_url(path='@/project/_index.md') }}" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Projects</a>
+            <a href="{{ get_url(path='@/research/_index.md') }}" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Research</a>
+            <a href="#" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Resume</a>
           </div>
         </nav>
       </div>

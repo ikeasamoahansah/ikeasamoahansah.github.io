@@ -31,3 +31,5 @@ katex_enable = false
 instantpage_enable = false
 
 toc = true
+
+favicon = "static/icons/favicon/favicon-32x32.png"
