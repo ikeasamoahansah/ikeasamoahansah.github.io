@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://eiasamoah.me/</loc>
+    </url>
+    <url>
+        <loc>https://eiasamoah.me/blog/</loc>
+    </url>
+    <url>
+        <loc>https://eiasamoah.me/blog/reproduce/</loc>
+        <lastmod>2025-10-15</lastmod>
+    </url>
+    <url>
+        <loc>https://eiasamoah.me/blog/vit/</loc>
+        <lastmod>2025-04-27</lastmod>
+    </url>
+    <url>
+        <loc>https://eiasamoah.me/blog/zindi-landslide/</loc>
+        <lastmod>2025-08-22</lastmod>
+    </url>
+    <url>
+        <loc>https://eiasamoah.me/project/</loc>
+    </url>
+    <url>
+        <loc>https://eiasamoah.me/project/first/</loc>
+    </url>
+    <url>
+        <loc>https://eiasamoah.me/project/second/</loc>
+    </url>
+    <url>
+        <loc>https://eiasamoah.me/research/</loc>
+    </url>
+    <url>
+        <loc>https://eiasamoah.me/research/first/</loc>
+    </url>
+</urlset>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+  <title>pacman | Generalist</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="static/icons/favicon/favicon-32x32.png">
+  <link rel="stylesheet" href="https://eiasamoah.me/styles/styles.css" />
+</head>
+
+<body class="min-h-screen bg-background text-foreground" style="font-family: Helvetica, sans-serif;">
+  <div class="Root">
+
+    <header class="sticky top-0 z-50 w-full border-b border-(--tertiary-color) backdrop-blur-sm">
+      <div class="container max-w-7xl mx-auto">
+        <nav class="flex h-16 items-center justify-between">
+          <a class="flex items-center space-x-2 text-xl" href="https://eiasamoah.me/">pacman</a>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="https://eiasamoah.me/blog/" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Blog</a>
+            <a href="https://eiasamoah.me/project/" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Projects</a>
+            <a href="https://eiasamoah.me/research/" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Research</a>
+            <a href="#" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Resume</a>
+          </div>
+          <div class="flex items-center space-x-8 md:hidden">
+            <a href="#" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Resume</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="max-w-5xl">
+      
+
+<div class="prose prose-base md:prose-md lg:prose-lg xl:prose-xl w-2/3 md:w-full md:max-w-3xl lg:max-w-5xl mt-5">
+	<h2 align="center"> Reproducibility: In Machine Learning Applications </h1>
+<h3 id="background">Background</h3>
+<p>I recently participated in the NASA space apps challenge, an annual global hackathon which brings together developers, designers and storytellers for a 2-day event. Every year, NASA has a list of challenges that participants may chose from. This year, my team decided to tackle challenge #2 (A World Away: Hunting for Exoplanets with AI).</p>
+<h3 id="task">Task</h3>
+<p>Project Description:</p>
+<blockquote>
+<p>Data from several different space-based exoplanet surveying missions have enabled discovery of thousands of new planets outside our solar system, but most of these exoplanets were identified manually. With advances in artificial intelligence and machine learning (AI/ML), it is possible to automatically analyze large sets of data collected by these missions to identify exoplanets. Your challenge is to create an AI/ML model that is trained on one or more of the open-source exoplanet datasets offered by NASA and that can analyze new data to accurately identify exoplanets. (Astrophysics Division)</p>
+</blockquote>
+<p><strong>tldr;</strong> We were to build a machine learning model that can accurately identify exoplanets, classifying them as "Confirmed Exoplanet", "Exoplanet Candidate" or "False Positive"</p>
+<p>We were quick to develop and deploy a machine learning prediction pipeline using XGBoost and a Random Forest model on <a href="https://huggingface.co">huggingface</a> with a FastAPI backend which was linked to a html frontend. However, we noticed some issues with the prediction.</p>
+<h3 id="output">Output:</h3>
+<table><thead><tr><th style="text-align: center">First run</th><th style="text-align: center">Second run</th></tr></thead><tbody>
+<tr><td style="text-align: center">
+<img src="https:&#x2F;&#x2F;eiasamoah.me&#x2F;processed_images&#x2F;screenshot-1.344d4e0540460233.png" /></td><td style="text-align: center">
+<img src="https:&#x2F;&#x2F;eiasamoah.me&#x2F;processed_images&#x2F;screenshot-2.6afbdfce34958fa0.png" /></td></tr>
+</tbody></table>
+<!-- <img src="screenshot-1.png"/>  <img src="screenshot-2.png"/> -->
+<!-- ![image](screenshot-1.png)  |  ![image](screenshot-2.png) -->
+<!-- ![screenshot-1.png](screenshot-1.png) ![screenshot-2.png](screenshot-2.png) -->
+<blockquote>
+<p>There's something wrong here.
+Notice that the two images are different even though the same values were used across</p>
+</blockquote>
+<p>The model is not consistent in it's result. This suggests something went wrong in it's training procedure.</p>
+<h3 id="reproducibility">Reproducibility</h3>
+<p>Reproducibility in machine learning is the ability to produce the same results by using the same code, data and settings as the original experiment. In our case, when we run both predictions we should either obtain "Confirmed Exoplanet" or "Exoplanet Candidate" for the two and not varying results.</p>
+<h3 id="tracing-the-error">Tracing the error</h3>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#65737e;"># XGB Classifier
+</span><span>xgb_selected_mi = </span><span style="color:#bf616a;">XGBClassifier</span><span>(</span><span style="color:#bf616a;">use_label_encoder</span><span>=</span><span style="color:#d08770;">False</span><span>, </span><span style="color:#bf616a;">eval_metric</span><span>=&#39;</span><span style="color:#a3be8c;">mlogloss</span><span>&#39;)
+</span><span>xgb_selected_mi.</span><span style="color:#bf616a;">fit</span><span>(X_train_selected_scaled_mi, y_train)
+</span><span>y_pred_xgb_selected_mi = xgb_selected_mi.</span><span style="color:#bf616a;">predict</span><span>(X_test_selected_scaled_mi)
+</span><span>
+</span><span>
+</span><span style="color:#65737e;"># RandomForest Classifer
+</span><span>rf = </span><span style="color:#bf616a;">RandomForestClassifier</span><span>()
+</span><span>rf.</span><span style="color:#bf616a;">fit</span><span>(X_train_scaled, y_train)
+</span><span>y_pred_rf = rf.</span><span style="color:#bf616a;">predict</span><span>(X_test_scaled)
+</span><span>
+</span></code></pre>
+<blockquote>
+<p>All the classifiers used lacked the <code>random_state</code> argument.</p>
+</blockquote>
+<h3 id="more-on-randomstate">More on RandomState()</h3>
+<p>In machine learning, the rule of thumb is to always set a <code>seed</code>. A seed is any number that you use to ensure reproducibility of results.</p>
+<p>Many machine learning algorithms involve some form of randomness, such as splitting data into training and test sets. When the <code>seed</code> or <code>random_state</code> is not set, these algorithms will produce different results each time the code is executed.</p>
+<p>Here is a link to a <a href="https://www.kaggle.com/discussions/general/422466">Kaggle</a> discussion that explains this in more detail.</p>
+<h3 id="what-should-have-been-done">What should have been done</h3>
+<pre data-lang="py" style="background-color:#2b303b;color:#c0c5ce;" class="language-py "><code class="language-py" data-lang="py"><span style="color:#65737e;">#SEED should have been set from the start to prevent repetition
+</span><span>
+</span><span style="color:#bf616a;">SEED </span><span>= </span><span style="color:#d08770;">42
+</span><span>
+</span><span>np.random.</span><span style="color:#bf616a;">state</span><span>(</span><span style="color:#bf616a;">SEED</span><span>) </span><span style="color:#65737e;"># this makes models that use numpy automatically use the seed set (in case you forget to set random state)
+</span><span>
+</span><span style="color:#65737e;"># Train, test split
+</span><span>X_train, X_test, y_train, y_test = </span><span style="color:#bf616a;">train_test_split</span><span>(X, y, </span><span style="color:#bf616a;">test_size</span><span>=</span><span style="color:#d08770;">0.2</span><span>, </span><span style="color:#bf616a;">random_state</span><span>=</span><span style="color:#bf616a;">SEED</span><span>) </span><span style="color:#65737e;"># set to ensure consistent splits
+</span><span>
+</span><span style="color:#65737e;"># XGB Classifier
+</span><span>xgb_selected_mi = </span><span style="color:#bf616a;">XGBClassifier</span><span>(</span><span style="color:#bf616a;">use_label_encoder</span><span>=</span><span style="color:#d08770;">False</span><span>, </span><span style="color:#bf616a;">eval_metric</span><span>=&#39;</span><span style="color:#a3be8c;">mlogloss</span><span>&#39;, </span><span style="color:#bf616a;">random_state</span><span>=</span><span style="color:#bf616a;">SEED</span><span>)
+</span><span>xgb_selected_mi.</span><span style="color:#bf616a;">fit</span><span>(X_train, y_train)
+</span><span>y_pred_xgb_selected_mi = xgb_selected_mi.</span><span style="color:#bf616a;">predict</span><span>(X_test)
+</span><span>
+</span><span>
+</span><span style="color:#65737e;"># RandomForest Classifer
+</span><span>rf = </span><span style="color:#bf616a;">RandomForestClassifier</span><span>(</span><span style="color:#bf616a;">random_state</span><span>=</span><span style="color:#bf616a;">SEED</span><span>)
+</span><span>rf.</span><span style="color:#bf616a;">fit</span><span>(X_train, y_train)
+</span><span>y_pred_rf = rf.</span><span style="color:#bf616a;">predict</span><span>(X_test)
+</span></code></pre>
+<blockquote>
+<p>Even though <code>np.random.seed(SEED)</code> will work, <code>random_state</code> should also be stated since the numpy function does not work with all algorithms</p>
+</blockquote>
+<h3 id="results">Results:</h3>
+<table><thead><tr><th style="text-align: center">First run</th><th style="text-align: center">Second run</th></tr></thead><tbody>
+<tr><td style="text-align: center">
+<img src="https:&#x2F;&#x2F;eiasamoah.me&#x2F;processed_images&#x2F;screenshot-3.b169aec4b2328b58.png" /></td><td style="text-align: center">
+<img src="https:&#x2F;&#x2F;eiasamoah.me&#x2F;processed_images&#x2F;screenshot-3.b169aec4b2328b58.png" /></td></tr>
+</tbody></table>
+<blockquote>
+<p>As you can see, results were now consistent</p>
+</blockquote>
+<p><a href="https://huggingface.co/spaces/pacman2223/exo-standalone">Test the model out</a></p>
+<p>Thank you for reading!</p>
+
+
+</div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>
