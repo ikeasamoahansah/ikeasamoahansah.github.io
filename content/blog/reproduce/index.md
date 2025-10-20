@@ -108,6 +108,6 @@ First run            |  Second run
 
 > Ps: It wouldn't be ideal to post the second screenshot since they are similar hehe
 
-[Test the model out](https://huggingface.co/spaces/pacman2223/exo-standalone)
+<a class="text-(--text-muted) transition-colors a-hover" href="https://huggingface.co/spaces/pacman2223/exo-standalone" target="_blank">Test the model out</a>
 
 Thank you for reading!
