@@ -8,7 +8,7 @@
   </div>
   {% for page in section.pages %}
     <div class="border border-(--border) mb-5 bg-(--tertiary-color) p-8 rounded-md">
-      <a href="{{ page.permalink | safe }}" class="flex items-center text-gray-900 transition-colors a-hover">{{ page.title }}</a>
+      <a href="{{ page.permalink | safe }}" target="_blank" class="flex items-center text-gray-900 transition-colors a-hover">{{ page.title }}</a>
       <p class="text-(--text-muted)">{{page.date}}</p>
     </div>
     {% endfor %}

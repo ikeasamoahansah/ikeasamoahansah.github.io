@@ -8,7 +8,7 @@
   </div>
   {% for page in section.pages %}
     <div class="border border-(--border) mb-5 bg-(--tertiary-color) p-8 rounded-md">
-      <a href="https://github.com/ikeasamoahansah/{{page.title}}" class="flex items-center text-gray-900 transition-colors a-hover">{{ page.title }}</a>
+      <a href="https://github.com/ikeasamoahansah/{{page.title}}" target="_blank" class="flex items-center text-gray-900 transition-colors a-hover">{{ page.title }}</a>
       <p class="text-(--text-muted)">{{page.description}}</p>
     </div>
   {% endfor %}
