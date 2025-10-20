@@ -29,3 +29,13 @@
 .border-b {
     border-bottom-width: 1px;
 }
+
+img {
+    transition: -webkit-transform 0.25s ease;
+    transition: transform 0.25s ease;
+}
+
+img:active {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+}

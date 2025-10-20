@@ -19,7 +19,7 @@
             <a href="{{ get_url(path='@/blog/_index.md') }}" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Blog</a>
             <a href="{{ get_url(path='@/project/_index.md') }}" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Projects</a>
             <a href="{{ get_url(path='@/research/_index.md') }}" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Research</a>
-            <a href="#" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Resume</a>
+            <!-- <a href="#" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Resume</a> -->
           </div>
           <div class="flex items-center space-x-8 md:hidden">
             <a href="#" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Resume</a>
@@ -28,7 +28,7 @@
       </div>
     </header>
 
-    <div class="max-w-5xl">
+    <div class="mx-auto p-10 max-w-5xl">
       {% block content %} {% endblock %}
     </div>
   </div>

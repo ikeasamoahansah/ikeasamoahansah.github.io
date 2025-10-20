@@ -18,11 +18,12 @@ Project Description:
 
 We were quick to develop and deploy a machine learning prediction pipeline using XGBoost and a Random Forest model on [huggingface](https://huggingface.co) with a FastAPI backend which was linked to a html frontend. However, we noticed some issues with the prediction.
 
-### Output:
-
-First run            |  Second run
-:-------------------------:|:-------------------------:
-{{ resize_image(path='/content/blog/reproduce/screenshot-1.png', width=800, height=800, op="fit") }} | {{ resize_image(path='/content/blog/reproduce/screenshot-2.png', width=800, height=800, op="fit") }}
+<!-- First run            |  Second run
+:-------------------------:|:-------------------------: -->
+#### First run
+{{ resize_image(path='/content/blog/reproduce/screenshot-1.png', width=800, height=800, op="fit") }}
+#### Second run
+{{ resize_image(path='/content/blog/reproduce/screenshot-2.png', width=800, height=800, op="fit") }}
 <!-- <img src="screenshot-1.png"/>  <img src="screenshot-2.png"/> -->
 
 
@@ -95,15 +96,17 @@ y_pred_rf = rf.predict(X_test)
 > Even though `np.random.seed(SEED)` will work, `random_state` should also be stated since the numpy function does not work with all algorithms
 
 
-### Results:
-
+#### Result:
+<!-- 
 First run            |  Second run
-:-------------------------:|:-------------------------:
-{{ resize_image(path='/content/blog/reproduce/screenshot-3.png', width=800, height=800, op="fit") }} | {{ resize_image(path='/content/blog/reproduce/screenshot-3.png', width=800, height=800, op="fit") }}
+:-------------------------:|:-------------------------: -->
+{{ resize_image(path='/content/blog/reproduce/screenshot-3.png', width=800, height=800, op="fit") }}
 
 
 
-> As you can see, results were now consistent
+> Results are now consistent. 
+
+> Ps: It wouldn't be ideal to post the second screenshot since they are similar hehe
 
 [Test the model out](https://huggingface.co/spaces/pacman2223/exo-standalone)
 
