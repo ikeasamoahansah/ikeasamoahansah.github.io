@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
+  <title>pacman | Generalist</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="[object]">
+  <link rel="stylesheet" href="https://eiasamoah.me/styles/styles.css" />
+</head>
+
+<body class="min-h-screen bg-background text-foreground" style="font-family: Helvetica, sans-serif;">
+  <div class="Root">
+
+    <header class="sticky top-0 z-50 w-full border-b border-(--tertiary-color) backdrop-blur-sm">
+      <div class="container max-w-7xl mx-auto">
+        <nav class="flex h-16 items-center justify-between">
+          <a class="flex items-center space-x-2 text-xl" href="https://eiasamoah.me/">pacman</a>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="https://eiasamoah.me/blog/" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Blog</a>
+            <a href="https://eiasamoah.me/project/" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Projects</a>
+            <a href="https://eiasamoah.me/research/" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Research</a>
+            <!-- <a href="#" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Resume</a> -->
+          </div>
+          <div class="flex items-center space-x-8 md:hidden">
+            <a href="#" class="relative text-sm font-medium text-(--text-muted) transition-colors a-hover group">Resume</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="mx-auto p-10 max-w-5xl">
+      
+
+<div class="prose prose-base sm:prose-md xl:prose-lg max-w-5xl">
+	<h2 align="center">Attention in Transformers - An overview</h2>
+
+<img src="https:&#x2F;&#x2F;eiasamoah.me&#x2F;processed_images&#x2F;attention-2.cf16ffa5b91120ed.png" /><h3 id="overview">Overview</h3>
+<ul>
+<li>Similarity between words
+<ul>
+<li>Dot product</li>
+<li>Cosine similarity</li>
+</ul>
+</li>
+<li>The Key, Query, Value matrices as linear transformations</li>
+</ul>
+<p>Words are made as word embeddings (numerical values)
+Context helps to determine what kind of word that should refer to. This is where similarity comes in.</p>
+<h4 id="dot-product">Dot product</h4>
+<p>Think of a 2D graph with x and y axes. The dot product is a multiplication of the words in matrix form (matrix multiplication). eg. [2, 3] * [1, 4]-&gt; (2 * 1) + (3 * 4) = 14
+The first one times the transpose of the second one</p>
+<h4 id="cosine-similarity">Cosine Similarity</h4>
+<p>points on the graph are traced to the origin and the angle is gotten using the arctan property and the angle is put into the cosine() function to give the value.</p>
+<h4 id="scaled-dot-product">Scaled Dot product</h4>
+<p>The answer from the dot product divided by the length of the vector. eg. 14/sqrt(2)
+This helps to prevent the exploding gradient problem.</p>
+<h4 id="normalization">Normalization</h4>
+<p>After the word math step, the words should be normalized/scaled down to prevent the use of extremely large numbers. The softmax activation function is used.</p>
+<!-- $$
+\sigma(z)_{i} = \frac{e^{z_{i}}}{\sum {K_{j=1}e^{z_{j}}}}
+$$ -->
+<p><script type="math/tex;mode=display">\KaTeX</script>
+<script type="math/tex">sigma</script></p>
+<h4 id="keys-and-queries">Keys and Queries</h4>
+<p>Turn the embedding into one that is best for calculating similarities.</p>
+<h4 id="values">Values</h4>
+<p>Best embedding for finding the next word.
+Multiplies the embedding from the keys and queries and multiplies it by itself.</p>
+<p>Why move words on a different embedding?</p>
+<p>The first can give info like:</p>
+<ul>
+<li>color</li>
+<li>size</li>
+<li>high level embeddings</li>
+</ul>
+<p>The second one (values) knows when two words could appear in the same context.</p>
+<h4 id="multi-head-attention">Multi-Head Attention</h4>
+<p>Many heads are used (n-times). basically the single head attention procedure is done many times.</p>
+<h4 id="concatenating">Concatenating</h4>
+<blockquote>
+<p>If you have an embedding of 3 (2 dimensions) you get 6 dimensions</p>
+</blockquote>
+<h4 id="linear-step">Linear step</h4>
+<p>It transforms the dimensions into lower ones which could actually be used. The best ones are scaled up, the worst are scaled down.
+Then an optimal embedding is produced.</p>
+<h3 id="the-math">The Math</h3>
+<p>Starting with the encoder</p>
+<p><strong>Input imbedding</strong>:</p>
+<ul>
+<li>A sentence of words are tokenized (split into single words).</li>
+<li>The words are then mapped into numbers that represent the position of words in our vocabulary. Numbers(input ID) are mapped into a vector of 512 numbers.</li>
+<li>The same word gets mapped to the same embedding.</li>
+<li>The numbers (embeddings) are changed by the model and hence are not fixed.</li>
+<li>They change according to the needs of the loss function.</li>
+</ul>
+<p><strong>Positional Encoding</strong>:</p>
+<ul>
+<li>Each word should carry information about its pos in the sentence.</li>
+<li>That is what positional encoding does.</li>
+<li>Words closer to each other as "close" and those distant from each other as "distant".</li>
+<li>$$PE(ps, 2i) = \sin(pos\10000^{2i\d} )$$</li>
+<li>$$PE(pos, 2i+1) = \cos(pos\10000^{2i\d})$$</li>
+<li>Positional encodings are computed once and reused.</li>
+<li>Trigonometric functions represent a pattern the model can recognize as continuous, so relative positions are easier to see for the model.</li>
+</ul>
+<p><strong>Self-Attention</strong>:</p>
+<ul>
+<li>it allows the model to relate words to each other</li>
+<li>$$Attention(Q, K, V) = softmax(\frac{QK^{T}}{\\sqrt{ d }})V$$</li>
+<li>d = 512 / len(seq); T=transpose</li>
+<li>softmax keeps the values between 0 and 1 (they sum up to 1)</li>
+</ul>
+<p><strong>Multi-Head Attention</strong>:
+$$ Multihead(Q, K, V) = Concat(head_{1}\dots.head_{n})W $$
+$$ head_{i} = Attention(QW_{i}^{Q}, KW_{i}^{K}, VW_{i}^{V}) $$</p>
+<p><strong>Layer Normalization</strong>:</p>
+<ul>
+<li>normalize to make new values in the range 0-1</li>
+<li>beta and gamma parameters are added</li>
+<li>model learns from this parameters to amplify values that need amplification</li>
+</ul>
+<p>For the decoder:</p>
+<p><strong>Masked Multi-Head</strong>:</p>
+<ul>
+<li>prevent model from seeing future words</li>
+<li>replace the future values with -inf</li>
+<li>the softmax sends the -inf to a very small value -&gt; 0</li>
+<li>this is done after the matmul, just before the softmax function</li>
+</ul>
+
+
+</div>
+
+    </div>
+
+    <footer>
+      <div class="flex flex-col gap-2 mt-16 w-full">
+        <div class="flex items-center gap-2.5 mt-1">
+          <a href="https://eiasamoah.me/blog/" class="flex items-center gap-1 transition-colors a-hover text-(--text-muted) hover:underline text-[#494949]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-feather-icon lucide-feather">
+              <path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"/><path d="M16 8 2 22"/><path d="M17.5 15H9"/></svg>
+          </a>
+          <span>.</span>
+          <a href="https://eiasamoah.me/project/" class="flex items-center gap-1 transition-colors a-hover text-(--text-muted) hover:underline text-[#494949]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-binary-icon lucide-binary">
+              <rect x="14" y="14" width="4" height="6" rx="2"/>
+              <rect x="6" y="4" width="4" height="6" rx="2"/>
+              <path d="M6 20h4"/><path d="M14 10h4"/>
+              <path d="M6 14h2v6"/><path d="M14 4h2v6"/>
+            </svg>
+          </a>
+          <span>.</span>
+          <a href="https://eiasamoah.me/research/" class="flex items-center gap-1 transition-colors a-hover text-(--text-muted) hover:underline text-[#494949]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-binoculars-icon lucide-binoculars"><path d="M10 10h4"/><path d="M19 7V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3"/><path d="M20 21a2 2 0 0 0 2-2v-3.851c0-1.39-2-2.962-2-4.829V8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v11a2 2 0 0 0 2 2z"/><path d="M 22 16 L 2 16"/><path d="M4 21a2 2 0 0 1-2-2v-3.851c0-1.39 2-2.962 2-4.829V8a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2z"/>
+              <path d="M9 7V4a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3"/>
+            </svg>
+          </a>
+          <span>.</span>
+          <a href="https://github.com/ikeasamoahansah" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 transition-colors a-hover text-(--text-muted)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+              <path d="M9 18c-4.51 2-5-2-7-2"></path>
+            </svg>
+          </a>
+          <span>.</span>
+          <a href="https://www.linkedin.com/in/ikeasamoahansah/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1 transition-colors a-hover text-(--text-muted)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect width="4" height="12" x="2" y="9"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <span>.</span>
+          <a href="mailto:ikeasamoahansah@outlook.com" class="flex items-center gap-1 transition-colors a-hover text-(--text-muted)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail">
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+
+</html>
