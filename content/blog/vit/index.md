@@ -3,7 +3,10 @@ title = "Vision Transformers"
 date = 2025-04-27
 +++
 
-# VIT
+<h2 align="center">Vision Transformer</h2>
+
+{{ resize_image(path='/content/blog/vit/vision_transformers.png', width=1000, height=800, op="fit") }}
+
 
 ### Composition
 It comprises of many layers.
@@ -212,7 +215,7 @@ patch_and_position_embedding = patch_embedding_class_token + position_embedding
 print(f"Patch and position embedding shape: {patch_and_position_embedding.shape}")
 ```
 
-### Replication Equation 2 with Pytorch Layers
+### Replicating Equation 2 with Pytorch Layers
 
 ```py
 import torch

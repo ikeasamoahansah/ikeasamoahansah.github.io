@@ -5,7 +5,7 @@ date = 2025-04-20
 
 <h2 align="center">Attention in Transformers - An overview</h2>
 
-{{ resize_image(path='/content/blog/transformers/attention.png', width=800, height=800, op="fit") }}
+{{ resize_image(path='/content/blog/transformers/attention-2.png', width=1000, height=800, op="fit") }}
 
 ### Overview
 
