@@ -853,9 +853,6 @@
   .mr-auto {
     margin-right: auto;
   }
-  .mb-2 {
-    margin-bottom: calc(var(--spacing) * 2);
-  }
   .mb-5 {
     margin-bottom: calc(var(--spacing) * 5);
   }
