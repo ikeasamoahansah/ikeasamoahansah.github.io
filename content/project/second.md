@@ -1,6 +1,6 @@
 +++
-title = "unet-training"
-description = "A custom UNet model for image segmentation"
+title = "molvis"
+description = "A browser based molecule visualizer and editor with chemistry AI"
 [extra]
-repo = "https://github.com/ikeasamoahansah/unet-training"
+repo = "https://molvis-nine.vercel.app/"
 +++
