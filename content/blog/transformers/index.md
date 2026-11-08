@@ -90,14 +90,14 @@ Starting with the encoder
 - Each word should carry information about its pos in the sentence. 
 - That is what positional encoding does.
 - Words closer to each other as "close" and those distant from each other as "distant".
-- $$PE(ps, 2i) = \sin(pos\10000^{2i\d} )$$
-- $$PE(pos, 2i+1) = \cos(pos\10000^{2i\d})$$
+- $$PE_{(pos, 2i)} = \sin(pos / 10000^{2i/d_{model}})$$
+- $$PE_{(pos, 2i+1)} = \cos(pos / 10000^{(2i+1)/d_{model}})$$
 - Positional encodings are computed once and reused.
 - Trigonometric functions represent a pattern the model can recognize as continuous, so relative positions are easier to see for the model.
 
 **Self-Attention**:
 - it allows the model to relate words to each other
-- $$Attention(Q, K, V) = softmax(\frac{QK^{T}}{\\\sqrt{ d }})V$$
+- $$Attention(Q, K, V) = softmax(\frac{QK^{T}}{\sqrt{ d }})V$$
 - d = 512 / len(seq); T=transpose
 - softmax keeps the values between 0 and 1 (they sum up to 1)
 

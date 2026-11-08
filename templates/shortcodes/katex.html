@@ -1,1 +1,5 @@
-<script type="math/tex{% if block %};mode=display{% endif %}">{{body}}</script>
+{%- if block -%}
+<div class="math-display">$$ {{ body | trim }} $$</div>
+{%- else -%}
+<span class="math-inline">$ {{ body | trim }} $</span>
+{%- endif -%}
