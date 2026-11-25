@@ -3,8 +3,6 @@ title = "Vision Transformers"
 date = 2025-04-27
 +++
 
-<h2 align="center">Vision Transformer</h2>
-
 {{ resize_image(path='/content/blog/vit/vision_transformers.png', width=1000, height=800, op="fit") }}
 
 
